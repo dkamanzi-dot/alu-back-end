@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     user_res = requests.get("{}/users/{}".format(base_url, employee_id))
     user = user_res.json()
-    employee_name = user.get("name")
+    employee_username = user.get("username")
 
     todos_res = requests.get(
         "{}/todos".format(base_url),
@@ -27,7 +27,7 @@ if __name__ == "__main__":
         for task in todos:
             writer.writerow([
                 employee_id,
-                employee_name,
+                employee_username,
                 task.get("completed"),
                 task.get("title")
             ])
